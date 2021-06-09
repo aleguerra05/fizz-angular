@@ -2,8 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
 
-
-## Database sever
+## Play with the app
+The app is published on https://fizz-angular.vercel.app/home
+## Database sever 
+### (deprecated, currently usig a RestApi published on https://first-me.herokuapp.com/)
 
 Run `npm install` for install dependencies
 then run `npm run server` for the RestAPI with Fizzbuzz data.
