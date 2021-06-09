@@ -9,7 +9,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class DataService {
 
-  private REST_API_SERVER = "http://localhost:3000/numbers"
+  private REST_API_SERVER = "https://first-me.herokuapp.com/api/fizzbuzz"
 
   constructor(private httpClient:HttpClient) { }
 
@@ -28,6 +28,6 @@ export class DataService {
 
   public sendGetRequest(){
     const options = {params: new HttpParams({fromString:"_page=1&_limit=20"})}
-    return this.httpClient.get(this.REST_API_SERVER,options).pipe(retry(3), catchError(this.handleError));
+    return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
   }
 }
