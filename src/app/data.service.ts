@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  // private REST_API_SERVER = "https://first-me.herokuapp.com/api/fizzbuzz"
-  private REST_API_SERVER = "http://localhost:8080/api/fizzbuzz"
+  private REST_API_SERVER = "https://first-me.herokuapp.com/api/fizzbuzz"
+  //private REST_API_SERVER = "http://localhost:8080/api/fizzbuzz"
 
   constructor(private http: HttpClient) { }
 
