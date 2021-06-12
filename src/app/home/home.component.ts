@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../data.service'
 import {Number} from '../number/number'
-import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 
@@ -12,16 +11,21 @@ import { Subject } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  numbers: Number[] = [];
-  destroy$: Subject<boolean> = new Subject<boolean>();
+  throttle = 0;
+  distance = 2;
+  page = 1;
+  numbers: Number[] | any[] = [];
 
-  constructor(private dataService:DataService) { }
+  destroy$: Subject<boolean> = new Subject<boolean>();
+  
+  constructor(private dataService:DataService) {}
 
   ngOnInit(): void {
-    this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((data: any)=>{
-      // console.log(data);
-      this.numbers = data;
-    })
+    this.dataService
+      .sendGetRequest(this.page,10)
+      .subscribe((numbers: Number[]) => {
+        this.numbers = numbers;
+      });
   }
 
   ngOnDestroy() {
@@ -30,4 +34,11 @@ export class HomeComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
+  onScroll(): void {
+    this.dataService
+      .sendGetRequest(++this.page,10)
+      .subscribe((numbers: Number[]) => {
+        this.numbers.push(...numbers);
+      });
+  }
 }
