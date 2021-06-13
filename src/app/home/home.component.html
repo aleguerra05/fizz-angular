@@ -13,7 +13,7 @@
 
 
     <mat-spinner *ngIf="numbers.length === 0"></mat-spinner>
-    <mat-card *ngFor="let number of numbers| filter:term">
+    <mat-card *ngFor="let number of numbers | filter:term">
 
         <mat-card-title>{{number.result}}</mat-card-title>
         <mat-card-subtitle>{{number.id}}</mat-card-subtitle>

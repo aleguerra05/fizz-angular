@@ -8,7 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScrollingModule} from '@angular/cdk/scrolling';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { FilterPipe } from './pipes/filter'
+import { FilterPipe } from './pipes/filter.pipe'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material-module';
 

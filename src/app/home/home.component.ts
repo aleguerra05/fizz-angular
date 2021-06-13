@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../data.service'
-import {Number} from '../number/number'
+import { DataService } from '../data.service'
+import { Number } from '../number/number'
 import { Subject } from 'rxjs';
 
 
