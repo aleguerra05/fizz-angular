@@ -6,33 +6,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule} from '@angular/material/toolbar';
-import { MatIconModule} from '@angular/material/icon';
-import { MatCardModule} from '@angular/material/card';
-import { MatButtonModule} from '@angular/material/button';
-import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { ScrollingModule} from '@angular/cdk/scrolling';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FilterPipe } from './pipes/filter'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from './material-module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatButtonModule,
-    MatProgressSpinnerModule,
     ScrollingModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FormsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

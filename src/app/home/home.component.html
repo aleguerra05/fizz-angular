@@ -2,12 +2,18 @@
     infinite-scroll
     [infiniteScrollDistance]="distance"
     [infiniteScrollThrottle]="throttle"
-    (scrolled)="onScroll()"
->
+    (scrolled)="onScroll()">
+
+    <div class="serachForm">
+        <mat-form-field>
+            <mat-label>Filter</mat-label>
+            <input matInput name="term" [(ngModel)]="term">
+        </mat-form-field>      
+    </div> 
+
 
     <mat-spinner *ngIf="numbers.length === 0"></mat-spinner>
-
-    <mat-card *ngFor="let number of numbers">
+    <mat-card *ngFor="let number of numbers| filter:term">
 
         <mat-card-title>{{number.result}}</mat-card-title>
         <mat-card-subtitle>{{number.id}}</mat-card-subtitle>

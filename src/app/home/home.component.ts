@@ -12,9 +12,11 @@ import { Subject } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   throttle = 0;
-  distance = 2;
+  distance = 1;
   page = 1;
+  pageSize:number = 50;
   numbers: Number[] | any[] = [];
+  term:any="";
 
   destroy$: Subject<boolean> = new Subject<boolean>();
   
@@ -22,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService
-      .sendGetRequest(this.page,10)
+      .sendGetRequest(this.page,this.pageSize)
       .subscribe((numbers: Number[]) => {
         this.numbers = numbers;
       });
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   onScroll(): void {
     this.dataService
-      .sendGetRequest(++this.page,10)
+      .sendGetRequest(++this.page,this.pageSize)
       .subscribe((numbers: Number[]) => {
         this.numbers.push(...numbers);
       });
